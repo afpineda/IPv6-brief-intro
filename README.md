@@ -17,11 +17,12 @@ For people having a basic knowledge about how IPv4 works.
   protocol as well as a network protocol, using the IPv6 stack alone.
   A network in this shape was called "Internet 2".
 - Routing is hierarchical in IPv6.
-- IPv6 addresses are 128 bit long (8 bytes).
-  There is a new standard notation in hexadecimal composed by
-  4 groups of 4 bytes separated by ":".
+- IPv6 addresses are 128 bit long (16 bytes).
+  There is a new standard notation composed by
+  8 groups of 4 hexadecimal digits separated by ":".
   However, a single sequence of continuous zeros can be summarized to "::".
-  For example "2001:db8::1" equals to "2001:db80:0000:0001".
+  For example "2001:db8::1" equals to
+  "2001:db80:0000:0000:0000:0000:0000:0001".
 - Network mask are replaced by CIDR prefixes.
   For example, a /24 prefix means the leftmost 24 bits of the address is
   a network address. The rightmost 64 bits of the address is the node address.
