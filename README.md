@@ -21,7 +21,7 @@ For people having a basic knowledge about how IPv4 works.
   There is a new standard notation in hexadecimal composed by
   4 groups of 4 bytes separated by ":".
   However, a single sequence of continuous zeros can be summarized to "::".
-  For example "FE00:ABCD::1" equals to "FE00:ABCD:0000:0001".
+  For example "2001:db8::1" equals to "2001:db80:0000:0001".
 - Network mask are replaced by CIDR prefixes.
   For example, a /24 prefix means the leftmost 24 bits of the address is
   a network address. The rightmost 64 bits of the address is the node address.
