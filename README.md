@@ -82,10 +82,13 @@ Designed for protection against DDOS and packet fragmentation attacks.
     - Not routed.
     - Auto-configured (random or MAC-based).
   - Unique-local
-    - A way to avoid address collision between two different organizations.
-      Makes organization merges easier.
     - Not routed in the Internet.
     - Routed in the corporate network, only.
+    - Self-managed and self-assigned via
+      [a public registry](https://www.sixxs.net/tools/grh/ula/)
+      with no central authority.
+    - A way to avoid address collision between two different organizations.
+      Makes organization merges easier.
   - Multicast.
   - Global:
     - Routed in the Internet.
