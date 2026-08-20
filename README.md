@@ -23,13 +23,11 @@ For people having a basic knowledge about how IPv4 works.
   However, a single sequence of continuous zeros can be summarized to "::".
   For example "2001:db8::1" equals to
   "2001:db80:0000:0000:0000:0000:0000:0001".
-- Network mask are replaced by CIDR prefixes.
-  For example, a /24 prefix means the leftmost 24 bits of the address is
+- Network masks are replaced by CIDR prefixes.
+  For example, a /24 prefix length means the leftmost 24 bits of the address is
   a network address. The rightmost 64 bits of the address is the node address.
-  The other 40 bits can spread over several uses:
-  - as a subnet address for routing (by increasing the prefix size)
-  - added to the node address
-  - set to zero.
+  The other 40 bits can be used as a subnet address for hierarchical routing
+  (by increasing the prefix length in the required routers).
 - Each network interface can have two or more IPv6 addresses and
   usually does.
 - IPv4 broadcast, multicast and anycast addresses are replaced by
@@ -74,31 +72,32 @@ Designed for protection against DDOS and packet fragmentation attacks.
 
 ## IPv6 addressing
 
-- Address types:
-  - Unspecified.
-  - Loopback.
-  - Link-local:
-    - Mandatory.
-    - Unique in a local network.
-    - Not routed.
-    - Auto-configured (random or MAC-based).
-  - Unique-local
-    - Not routed in the Internet.
-    - Routed in the corporate network, only.
-    - Self-managed and self-assigned via
-      [a public registry](https://www.sixxs.net/tools/grh/ula/)
-      with no central authority.
-    - A way to avoid address collision between two different organizations.
-      Makes organization merges easier.
-  - Multicast.
-  - Global:
-    - Routed in the Internet.
-    - Uses a 48 bit prefix provided by an ISP or RIR.
-    - Another 16 bits are available as a subnet address (optional).
-    - A minimum of 64 bits are available for the node address suffix.
-    - Some global addresses are reserved.
+Address types:
 
-Note: "site-local" and "IPv4-compatible" addresses are no longer available.
+- Unspecified.
+- Loopback.
+- Link-local:
+  - Mandatory.
+  - Unique in a local network.
+  - Not routed.
+  - Auto-configured (random or MAC-based).
+- Unique-local
+  - Not routed in the Internet.
+  - Routed in the corporate network, only.
+  - Self-managed and self-assigned via
+    [a public registry](https://www.sixxs.net/tools/grh/ula/)
+    with no central authority.
+  - A way to avoid address collision between two different organizations.
+    Makes organization merges easier.
+- Multicast.
+- Global:
+  - Routed in the Internet.
+  - Uses a /48 address range provided by an ISP or RIR.
+  - 64 bits are mandatory for the node address suffix.
+  - Another 16 bits are available as a subnet address.
+  - Some global addresses are reserved.
+
+*Note:* "site-local" and "IPv4-compatible" addresses are no longer available.
 
 | Address type | Prefix    | Notes                        |
 | ------------ | --------- | ---------------------------- |
@@ -107,7 +106,7 @@ Note: "site-local" and "IPv4-compatible" addresses are no longer available.
 | Multicast    | FF00::/8  | Can not be assigned to nodes |
 | Link-local   | FE80::/10 | Not routed                   |
 | Unique local | FC00::/7  | Not routed in the Internet   |
-| Global       | the rest  | Up to /64                    |
+| Global       | the rest  | From /48 to /64              |
 
 Communication in a local network **always** takes place
 using link-local addresses *exclusively*,
@@ -206,8 +205,6 @@ depends on the "router announce" flags:
 When M = 0, the node computes its own global address
 using the subnet prefix and its own MAC address in a similar way
 to the link-local address.
-However, in this case, auto-configuration
-works in /64 prefixed networks **only**.
 
 ### DHCPv6
 
