@@ -214,7 +214,7 @@ DHCPv6 clients listen to the 546 UDP port.
 DHCPv6 servers and relays listen to the 547 UDP port.
 
 When using the stateless method, the DHCP server does not keep track of
-previously assigned global addresses.
+assigned global addresses.
 
 DHCPv6 does not uniquely identify nodes via MAC addresses as DHCPv4 does.
 Instead, it uses a pair of computed identifiers:
