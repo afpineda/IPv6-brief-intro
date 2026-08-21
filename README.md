@@ -170,9 +170,9 @@ Any possible address collision is solved thanks to simple ICMPv6 messages.
 ## Global address auto-configuration
 
 Routers announce themselves in the local network periodically,
-thanks to the "router announce" ICMPv6 multicast packet,
+thanks to the "router announce" ICMPv6 multicast datagram,
 but any node can ask for a router announcement via a "router request"
-ICMPv6 multicast packet.
+ICMPv6 multicast datagram.
 
 - The "router request" contains:
   - The link-local source address.
